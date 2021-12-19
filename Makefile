@@ -10,10 +10,12 @@ run:
 	docker build -t my-server:alpine .
 	docker run -d -p 8080:8080 --name my-server -v /data/transmission:/data my-server:alpine
 
-clean: 
-	rm -f server
+stop: 
 	docker stop my-server
 	docker rm -f my-server
+	
+clean: 
+	rm -f server
 
 list:
 	docker ps -a
