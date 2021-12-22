@@ -11,8 +11,7 @@ build-image:
 	docker build -t my-server:alpine .
 
 run:
-	docker build -t my-server:alpine .
-	docker run -d -p 8080:8080 --name my-server -v /data/transmission:/data my-server:alpine
+	docker run --restart=always -d -p 8080:8080 --name my-server -v /data/transmission:/data my-server:alpine
 
 stop: 
 	docker stop my-server
