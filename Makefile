@@ -17,7 +17,7 @@ stop:
 	docker rm -f my-server
 	
 clean: 
-	rm -f server
+	rm server
 
 list:
 	docker ps -a

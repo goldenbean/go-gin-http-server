@@ -15,8 +15,8 @@ func main() {
 	router.GET("/", func(c *gin.Context) {
 		c.String(http.StatusOK, "Hello %s", name)
 	})
-	router.Static("/public", "./public")
-	router.StaticFile("/favicon.ico", "./assets/favicon.ico")
+	router.Static("/public", "/work/public")
+	router.StaticFile("/favicon.ico", "/work/assets/favicon.ico")
 	router.StaticFS("/files", http.Dir("./"))
 
 	router.POST("/upload", func(c *gin.Context) {
@@ -42,5 +42,5 @@ func main() {
 
 		c.String(http.StatusOK, "Uploaded successfully %d files", len(files))
 	})
-	router.RunTLS(":8081", "./certs/server.pem", "./certs/server.key")
+	router.RunTLS(":8080", "/work/certs/server.pem", "/work/certs/server.key")
 }
